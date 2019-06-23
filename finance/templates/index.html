@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <form action="/index" method="post">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Symbol</th>
+              <th scope="col">Shares</th>
+              <th scope="col">Price</th>
+              <th scope="col">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for k , v in data.items() %}
+                <tr>
+                    <td >{{k}}</td>
+                    <td>{{v[0]}}</td>
+                    <td>{{v[1]}}</td>
+                    <td>{{v[2]}}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+              <td>CASH</td>
+              <td></td>
+              <td></td>
+              <td>{{real}}</td>
+            </tr>
+            <tr>
+              <td ></td>
+              <td></td>
+              <td></td>
+              <td>$1,000.00</td>
+            </tr>
+          </tbody>
+        </table>
+    </form>
+{% endblock %}
